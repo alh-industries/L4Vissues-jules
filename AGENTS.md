@@ -26,9 +26,9 @@ Create Github Issues and Github Project from a user-file in this repository.
 
 - user-file headers are encoded as `gh <COMMAND>_<FLAG>[:<DATATYPE>]`
 
-example1: command = `gh label create <value>`, so use values from all columns with *LABEL* (wildcar/substring) in the header  
+example1: command = `gh label create <value>`, so use values from all columns with `*LABEL*` (wildcar/substring) in the header  
 
-example2: command = `gh issue create --title "<value>" --body "<value>" --label "<value>,<value>", so use column values from *TITLE*, *BODY*, *LABEL* (wildcard/substring)
+example2: command = `gh issue create --title "<value>" --body "<value>" --label "<value>,<value>"`, so use column values from `*TITLE*, *BODY*, *LABEL*` (wildcard/substring)
 
 
 - the strings in the ISSUE_BODY column are semi-colon delimited sub-issues. the text is filled with symbols, so be careful when manipulating this data
@@ -44,20 +44,20 @@ example2: command = `gh issue create --title "<value>" --body "<value>" --label 
 
 ## Design Principles:
 
-DRY Mapping
-Column names and script behavior mirror GitHub CLI syntax for intuitive mapping.
+DRY Coding, Mapping
+- Column names and script behavior mirror GitHub CLI syntax for intuitive mapping.
 
 Idempotency 
-Agents/scripts skip work when it’s already done; no accidental duplicates.
+- Agents/scripts skip work when it’s already done; no accidental duplicates.
 
 Composability
-Agents/scripts can run independently or in a chained pipeline.
+- Agents/scripts can run independently or in a chained pipeline.
 
 Local & CI Friendly
-No local-only hacks; all agents/scripts can run in GitHub Actions without modification.
+- No local-only hacks; all agents/scripts can run in GitHub Actions without modification.
 
 Small, uncomplicated code 
-Built around gh CLI, jq, and lightweight Python for portability.
+- Built around gh CLI, jq, and lightweight Python for portability.
 
 
 
