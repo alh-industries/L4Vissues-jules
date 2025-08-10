@@ -185,7 +185,7 @@ def manage_project(df, issue_title_to_number):
     item_id_to_issue_number = {}
     for title, issue_number in issue_title_to_number.items():
         print(f"Adding issue #{issue_number} to project #{project_number}")
-        item_id = os.popen(f"gh project item-add {project_number} --issue-number {issue_number}").read().strip()
+        item_id = os.popen(f"gh project item-add {project_number} --issue {issue_number}").read().strip()
         if item_id:
             item_id_to_issue_number[item_id] = issue_number
             print(f"Successfully added issue #{issue_number} as item {item_id}")
