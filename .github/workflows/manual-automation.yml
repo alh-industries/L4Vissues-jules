@@ -3,6 +3,10 @@ name: Manual TSV to GitHub Issues/Project
 on:
   workflow_dispatch:
 
+permissions:
+  issues: write
+  projects: write
+
 jobs:
   run-automation:
     runs-on: ubuntu-latest
